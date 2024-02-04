@@ -1,2 +1,6 @@
 github.com/go-chi/chi/v5 v5.0.11 h1:BnpYbFZ3T3S1WMpD79r7R5ThWX40TaFB7L31Y8xqSwA=
 github.com/go-chi/chi/v5 v5.0.11/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNITLSKoi8=
+github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
+github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
+github.com/leapkit/core v1.2.10 h1:62itTSS1Pj8Fg9NVLx20P5W6RCLIjNTjD7SHFXBAKRQ=
+github.com/leapkit/core v1.2.10/go.mod h1:GHhcgE9dC6lfHeuPHTVYqbfdT6l4ghOQTUdC4pIfnDc=
