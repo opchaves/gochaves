@@ -8,7 +8,18 @@ dev:
 	air
 
 run:
-	go run ./main.go
+	go run ./cmd/app/main.go
+
+build:
+	env GOOS=linux GOARCH=amd64 go build -o bin/server $(PROJECT)/cmd/app
+	chmod +x bin/server
+
+build-mac:
+	env GOOS=darwin GOARCH=amd64 go build -o bin/server $(PROJECT)/cmd/app
+	chmod +x bin/server
+
+start:
+	./bin/server
 
 # run this before `make dev`
 # you only need to run this when you change the website
