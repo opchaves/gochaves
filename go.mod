@@ -1,4 +1,4 @@
-module github.com/opchaves/gochaves
+module opchaves.com
 
 go 1.21.0
 

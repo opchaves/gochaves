@@ -6,7 +6,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/leapkit/core/server"
-	"github.com/opchaves/gochaves/website"
+	"opchaves.com/website"
 )
 
 // AddRoutes mounts the routes for the application,

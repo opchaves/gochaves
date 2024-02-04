@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/leapkit/core/server"
-	"github.com/opchaves/gochaves/internal/app"
-	"github.com/opchaves/gochaves/internal/app/config"
+	"opchaves.com/internal/app"
+	"opchaves.com/internal/app/config"
 )
 
 func main() {

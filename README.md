@@ -4,7 +4,7 @@ Personal website+blog+apps built using Go, Hugo, Chi, HTMX, SQLite, TailwindCSS
 
 ### Clone the repo
 
-`cd some/dir && git clone git@github.com:opchaves/gochaves.git`
+`cd some/dir && git clone git@github.com:opchaves/opchaves.com
 
 ### How to run
 
@@ -30,3 +30,15 @@ Personal website+blog+apps built using Go, Hugo, Chi, HTMX, SQLite, TailwindCSS
 ### Links
 
 - [A Golang and HTMX Todo application](https://github.com/paganotoni/todox)
+
+### Useful
+
+Repalce all ocurrencies of `github.com/opchaves/gochaves` with `opchaves.com` in all `.go` files.
+
+[How to replace a string in multiple files in linux command line](https://stackoverflow.com/a/11392505)
+
+```sh
+sed -i '.bak' 's/github.com\/opchaves\/gochaves/opchaves.com/g' **/*.go
+# then remove all generated `.bak` files with:
+rm **/*.go.bak
+```
