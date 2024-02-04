@@ -30,6 +30,7 @@ Personal website+blog+apps built using Go, Hugo, Chi, HTMX, SQLite, TailwindCSS
 ### Links
 
 - [A Golang and HTMX Todo application](https://github.com/paganotoni/todox)
+- [Cache-Control on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
 
 ### Useful
 

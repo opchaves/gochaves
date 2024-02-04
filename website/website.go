@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"path"
 	"path/filepath"
+
+	"opchaves.com/internal/app/config"
 )
 
 var (
@@ -34,6 +36,10 @@ func tryRead(fs embed.FS, prefix, requestedPath string, w http.ResponseWriter) e
 
 	contentType := mime.TypeByExtension(filepath.Ext(requestedPath))
 	w.Header().Set("Content-Type", contentType)
+	if config.IsProduction {
+		// TODO index.html file are not fingerprinted. Would they need a different cache control?
+		w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
+	}
 	_, err = io.Copy(w, f)
 	return err
 }

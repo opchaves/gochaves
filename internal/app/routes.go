@@ -1,6 +1,8 @@
 package app
 
 import (
+	"net/http"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/leapkit/core/server"
@@ -18,6 +20,13 @@ func AddRoutes(r *server.Instance) error {
 
 	r.Route("/", func(r chi.Router) {
 		r.NotFound(website.WebsiteHandler)
+	})
+
+	r.Route("/api", func(r chi.Router) {
+		r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Content-Type", "application/json")
+			w.Write([]byte(`{"message": "Hello, world!"}`))
+		})
 	})
 
 	return nil
