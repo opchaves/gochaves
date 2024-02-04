@@ -2,7 +2,7 @@ MODULE := $(shell go list -m)
 
 export PROJECT = ${MODULE}
 # build webiste with dev url.
-export WEBSITE_BASE_URL=http://localhost:3000/blog
+export WEBSITE_BASE_URL=/blog
 
 dev:
 	air
@@ -26,8 +26,15 @@ start:
 build-dev-website:
 	cd website && hugo --baseURL ${WEBSITE_BASE_URL}
 
+tidy:
+	go mod tidy
+
+create-env:
+	cp .env.example .env && cp .env.example .env.test
+
+# You could also install hugo on macOS with `brew install hugo`
 install-tools:
 	go install github.com/cosmtrek/air@latest
+	# CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
 	# go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 	# go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
-	# CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest

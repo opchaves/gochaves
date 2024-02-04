@@ -3,6 +3,7 @@ package app
 import (
 	"net/http"
 
+	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/leapkit/core/server"
 	"github.com/opchaves/gochaves/website"
@@ -21,12 +22,9 @@ func AddRoutes(r *server.Instance) error {
 		w.Write([]byte("hello world"))
 	})
 
-	// TODO make it work without `/` suffix
-	// Mount the website folder to be served openly
-	// r.HandleFunc("/blog", func(w http.ResponseWriter, r *http.Request) {
-	// 	http.FileServer(http.FS(website.Index)).ServeHTTP(w, r)
-	// })
-	r.Folder("/blog/", website.Folder)
+	r.Route("/blog", func(r chi.Router) {
+		r.NotFound(website.WebsiteHandler)
+	})
 
 	return nil
 }

@@ -121,12 +121,12 @@ Here are some examples while working on a `contact.$contactId.tsx` route in Remi
 
 Given the variable name Copilot gives me the result in milliseconds which is what I
 expected.
-![Copilot suggests result in millis](/img/copilot-suggest-result-in-millis.png)
+![Copilot suggests result in millis](/blog/img/copilot-suggest-result-in-millis.png)
 
 On this example below, the moment I typed `export const act` Copilot gave the function signature, which I accepted
 and then once within the function body without typing anything Copilot suggested the function
 implementation which was in most part correct and that saved me a lot of typing.
-![Copilot suggests function code](/img/copilot-suggest-action-function-code.png)
+![Copilot suggests function code](/blog/img/copilot-suggest-action-function-code.png)
 
 Thanks for taking the time to read this article and I hope it has been useful to you.
 

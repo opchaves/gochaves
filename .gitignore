@@ -21,6 +21,7 @@ logs.txt
 .idea/
 secret.md
 .env
+.env.test
 .env.local
 tmp/
 bin/
