@@ -30,16 +30,3 @@ Personal website+blog+apps built using Go, Hugo, Chi, HTMX, SQLite, TailwindCSS
 ### Links
 
 - [A Golang and HTMX Todo application](https://github.com/paganotoni/todox)
-
-### TODO
-
-- Only load `.env*` during development
-- Replace core kit mod with chi
-- Remove `/blog` prefix on markdown files and have a route to handle this.
-  - Alt: when building hugo have `static/img` as `static/blog/img`
-  - Drawback above alt is that there must be a `/blog` route
-- When hugo building website for production set correct baseURL
-  - Have this command within Makefile. Name it as `build-prod-blog`?
-- Enable `Cache-Control` header for the `website` build in production
-  - Handle this within website handler `website/website.go`
-- Use sqlite as storage and goose for migrations
