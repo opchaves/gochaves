@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"path"
 	"path/filepath"
-	"strings"
 )
 
 var (
@@ -16,7 +15,6 @@ var (
 	files embed.FS
 
 	rootPath = "/"
-	sitePath = "/blog"
 	errDir   = errors.New("path is dir")
 )
 
@@ -42,14 +40,7 @@ func tryRead(fs embed.FS, prefix, requestedPath string, w http.ResponseWriter) e
 
 // TODO enable cache control in production
 func WebsiteHandler(w http.ResponseWriter, r *http.Request) {
-	// NOTE: not really needed since this handler is invoked within route `/blog`
-	// reqPath := r.URL.Path
-	// if strings.HasPrefix(rPath, sitePath) {
-	// 	reqPath = strings.TrimPrefix(rPath, sitePath)
-	// }
-
-	reqPath := strings.TrimPrefix(r.URL.Path, sitePath)
-	err := tryRead(files, "public", reqPath, w)
+	err := tryRead(files, "public", r.URL.Path, w)
 	if err == nil {
 		return
 	}
@@ -57,18 +48,16 @@ func WebsiteHandler(w http.ResponseWriter, r *http.Request) {
 	reqDir := "public"
 	if err != nil {
 		if err != errDir {
-			// TODO render 404 page
 			http.Error(w, "404 page not found", http.StatusNotFound)
 			return
 		}
-		if reqPath != rootPath {
-			reqDir = path.Join("public", reqPath)
+		if r.URL.Path != rootPath {
+			reqDir = path.Join("public", r.URL.Path)
 		}
 	}
 
 	err = tryRead(files, reqDir, "index.html", w)
 	if err != nil {
-		// TODO render 404 page
 		http.Error(w, "404 page not found", http.StatusNotFound)
 		return
 	}

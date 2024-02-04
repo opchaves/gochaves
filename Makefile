@@ -1,8 +1,9 @@
 MODULE := $(shell go list -m)
 
-export PROJECT = ${MODULE}
-# build webiste with dev url.
-export WEBSITE_BASE_URL=/blog
+export PROJECT=${MODULE}
+export WEBSITE_URL=http://localhost:3000
+
+# TODO read env variable from .env
 
 dev:
 	air
@@ -18,13 +19,13 @@ build-mac:
 	env GOOS=darwin GOARCH=amd64 go build -o bin/server $(PROJECT)/cmd/app
 	chmod +x bin/server
 
-start:
-	./bin/server
-
 # run this before `make dev`
 # you only need to run this when you change the website
-build-dev-website:
-	cd website && hugo --baseURL ${WEBSITE_BASE_URL}
+build-website:
+	cd website && hugo --baseURL ${WEBSITE_URL}
+
+start:
+	./bin/server
 
 tidy:
 	go mod tidy
