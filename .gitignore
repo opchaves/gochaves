@@ -25,3 +25,5 @@ secret.md
 .env.local
 tmp/
 bin/
+
+node_modules/
