@@ -1,7 +1,7 @@
 MODULE := $(shell go list -m)
 
 export PROJECT=${MODULE}
-export WEBSITE_URL=http://localhost:3000
+export WEBSITE_URL=/
 
 # TODO read env variable from .env
 
