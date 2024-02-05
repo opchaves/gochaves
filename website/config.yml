@@ -26,7 +26,7 @@ params:
     - name: linkedin
       url: "https://linkedin.com/in/opchaves"
     - name: youtube
-      url: "https://youtube.com.com/@opchaves"
+      url: "https://youtube.com/@opchaves"
 
   fuseOpts:
     isCaseSensitive: false
