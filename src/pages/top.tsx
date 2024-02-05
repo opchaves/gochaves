@@ -1,20 +1,23 @@
+import { InferSelectModel } from "drizzle-orm";
 import { Layout } from "../components/Layout";
-import type { Post } from "../index";
+import { users } from "../db/schema";
 
-const List = (props: { post: Post }) => (
+export type User = InferSelectModel<typeof users>;
+
+const List = (props: { user: User }) => (
   <li>
-    <a href={`/app/posts/${props.post.id}`}>{props.post.title}</a>
+    <a href={`/app/users/${props.user.id}`}>{props.user.firstName}</a>
   </li>
 );
 
-export const Top = (props: { posts: Post[] }) => {
+export const Top = (props: { users: User[] }) => {
   return (
     <Layout title={"Top"}>
       <main>
         <h2>Posts</h2>
         <ul>
-          {props.posts.map((post) => (
-            <List post={post} />
+          {props.users.map((user) => (
+            <List user={user} />
           ))}
         </ul>
       </main>

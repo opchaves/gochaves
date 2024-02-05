@@ -1,12 +1,12 @@
 import { Layout } from "../components/Layout";
-import type { Post } from "../index";
+import type { User } from "./top";
 
-export const Page = (props: { post: Post }) => {
+export const Page = (props: { user: Partial<User> }) => {
   return (
-    <Layout title={props.post.title}>
+    <Layout title={props.user.firstName!}>
       <main>
-        <h2>{props.post.title}</h2>
-        <p>{props.post.body}</p>
+        <h2>{props.user.firstName}</h2>
+        <p>{props.user.email}</p>
       </main>
     </Layout>
   );

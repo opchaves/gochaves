@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ESNext",
     "strict": true,
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
